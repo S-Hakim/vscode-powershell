@@ -887,7 +887,39 @@
         "uiTheme": "vs",
         "path": "./themes/theme-psise/theme.json"
       }
+    ],
+    "walkthroughs":[
+
+      {
+
+        "id": "sample",
+
+        "title": "Get Started with PowerShell",
+
+        "description": "A Sample walkthrough",
+
+        "steps": [
+
+          {
+
+          "id": "openpowershellterminal",
+
+            "title": "Open the PowerShell Terminal",
+
+            "media": {"markdown": "media/markdown/test.md"},
+
+            "description": "Configure: Show Console\nYou can set the integrated console to appear whenever you open the Powershell Extension in VS Code.\n[Show Console on Startup](command:PowerShell.ShowSessionConsole)",
+
+            "completionEvents": ["onCommand:PowerShell.ShowSessionConsole"]
+
+          }
+
+        ]
+
+      }
+
     ]
+
   },
   "private": true
 }
