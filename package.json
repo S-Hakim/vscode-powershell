@@ -896,9 +896,66 @@
 
         "title": "Get Started with PowerShell",
 
-        "description": "A Sample walkthrough",
+        "description": "Set up your environment and see what the PowerShell Extension in Visual Studio Code can help you achieve!",
 
         "steps": [
+
+
+
+          {
+
+            "id": "choosingaversion",
+  
+              "title": "Choosing a version of PowerShell",
+  
+              "media": {"markdown": "media/markdown/test.md"},
+  
+              "description": "There are multiple versions of PowerShell that you can use with the PowerShell extension. Choose the version that best fits your needs here.\n For the newest version of PowerShell, install PowerShell 7 or run ``iex \"& { $(irm https://aka.ms/install-powershell.ps1) } -UseMSI\"`` \n[Install PowerShell 7](https://docs.microsoft.com/en-us/powershell/scripting/install/installing-powershell-on-windows?view=powershell-7.2)\n - Latest version ― if you want the latest and greatest capabilities \n - Can be used to manage mutiple operating systems \n - [Open Source](https://github.com/powershell/powershell)",
+  
+              "completionEvents": ["onCommand:PowerShell.ShowSessionConsole"] 
+  
+            },
+
+            {
+
+              "id": "createafile",
+    
+                "title": "Create a PowerShell file",
+    
+                "media": {"markdown": "media/markdown/test.md"},
+    
+                "description": "[Create](command:toSide:workbench.action.files.newUntitledFile?%7B%22languageId%22%3A%22powershell%22%7D) or [open](command:toSide:workbench.action.files.openFolder?%7B%22languageId%22%3A%22powershell%22%7D) a PowerShell file, make sure to save it as .ps1 \n[Create a File](command:toSide:workbench.action.files.newUntitledFile?%7B%22languageId%22%3A%22powershell%22%7D)\n**Tip**: Tip: Use keyboard shortcut **(Ctrl + N)** to open a new script file or **(Ctrl + O)** to open a file " ,
+    
+                "completionEvents": ["onCommand:toSide:workbench.action.files.newUntitledFile?%7B%22languageId%22%3A%22powershell%22%7D"] 
+              },
+
+              {
+
+                "id": "switchsessions",
+      
+                  "title": "Switch sessions",
+      
+                  "media": {"markdown": "media/markdown/test.md"},
+      
+                  "description": " To switch between [PowerShell 7](command:PowerShell.ShowSessionConsole) and [Windows PowerShell 5](command:PowerShell.ShowSessionConsole), show the PowerShell sessions menu \n[Open PowerShell Sessions Menu](command:PowerShell.ShowSessionMenu)\n You can pin this to the status bar and switch sessions more smoothly ",
+      
+                  "completionEvents": ["onCommand:PowerShell.ShowSessionConsole"] 
+                },
+
+            {
+
+              "id": "usingisemode", 
+    
+                "title": "Using ISE mode",
+    
+                "media": {"markdown": "media/markdown/test.md"},
+    
+                "description": "If you are familiar with Windows PowerShell ISE and would like to configure your settings to replicate the ISE Experience, choose ISE Mode.\n[Enable ISE Mode](command:PowerShell.EnableISEMode)\n[Disable ISE Mode](command:PowerShell.DisableISEMode)",
+    
+                "completionEvents": ["onCommand:PowerShell.EnableISEMode"] 
+    
+
+              },
 
           {
 
@@ -908,11 +965,41 @@
 
             "media": {"markdown": "media/markdown/test.md"},
 
-            "description": "Configure: Show Console\nYou can set the integrated console to appear whenever you open the Powershell Extension in VS Code.\n[Show Console on Startup](command:PowerShell.ShowSessionConsole)",
+            "description": "Configure: Show Console\nYou can set the PowerShell extension terminal to run whenever you open the Powershell Extension in VS Code in order to use the PowerShell extension features.\n[Show Console](command:PowerShell.ShowSessionConsole)\n **Tip**: Use keyboard shortcut **(Ctrl + Shift + ` )** \n If you don't want the terminal panel to open on startup, you can keep the panel closed \n[Keep Panel Closed](command:PowerShell.ClosePanel)",
 
             "completionEvents": ["onCommand:PowerShell.ShowSessionConsole"]
 
-          }
+          },
+
+          {
+
+            "id": "exploremoreresources",
+  
+              "title": "Explore more resources",
+  
+              "media": {"markdown": "media/markdown/test.md"},
+  
+              "description": " - For [documentation](https://docs.microsoft.com/en-us/powershell/scripting/dev-cross-plat/vscode/using-vscode?view=powershell-7.2) on the PowerShell Extension\n - For more [general information](https://code.visualstudio.com/docs/languages/powershell)\n - Plug into the [PowerShell Community](https://docs.microsoft.com/en-us/powershell/scripting/community/community-support?view=powershell-7.2)\n - Take a look at our [Release Notes](https://docs.microsoft.com/en-us/powershell/scripting/whats-new/what-s-new-in-powershell-73?view=powershell-7.2)\n - Watch a [video tutorial](https://docs.microsoft.com/en-us/powershell/scripting/install/installing-powershell-on-windows?view=powershell-7.2) for PowerShell’s key features ",
+  
+              "completionEvents": ["onCommand:PowerShell.ShowSessionConsole"]
+  
+            },
+
+            {
+
+              "id": "userfeedback",
+    
+                "title": "Feedback",
+    
+                "media": {"markdown": "media/markdown/test.md"},
+    
+                "description": "How has the “Get Started with PowerShell” Walkthrough affected your confidence level when using the PowerShell Extension in VS Code?\n[I feel less confident](command:PowerShell.ClosePanel)\n[My confidence has not been affected ](command:PowerShell.ClosePanel)\n[I feel more confident](command:PowerShell.ClosePanel)",
+    
+                "completionEvents": ["onCommand:PowerShell.ShowSessionConsole"]
+    
+              }
+
+
 
         ]
 
