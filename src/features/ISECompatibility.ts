@@ -25,22 +25,33 @@ export class ISECompatibilityFeature implements vscode.Disposable {
         { path: "editor", name: "wordSeparators", value: "`~!@#%^&*()-=+[{]}\\|;:'\",.<>/?" },
         { path: "powershell.buttons", name: "showPanelMovementButtons", value: true }
     ];
-    private iseCommandRegistration: vscode.Disposable;
-    private defaultCommandRegistration: vscode.Disposable;
+
+    private enableCommandRegistration: vscode.Disposable;
+    private disableCommandRegistration: vscode.Disposable;
+    private toggleCommandRegistration: vscode.Disposable;
+    private iseToggled: boolean;
 
     constructor() {
-        this.iseCommandRegistration = vscode.commands.registerCommand(
-            "PowerShell.EnableISEMode", this.EnableISEMode);
-        this.defaultCommandRegistration = vscode.commands.registerCommand(
-            "PowerShell.DisableISEMode", this.DisableISEMode);
+        // TODO: This test isn't great.
+        const testSetting = ISECompatibilityFeature.settings[ISECompatibilityFeature.settings.length - 1];
+        this.iseToggled = vscode.workspace.getConfiguration(testSetting.path).get(testSetting.name) === testSetting.value;
+
+        this.enableCommandRegistration = vscode.commands.registerCommand(
+            "PowerShell.EnableISEMode", () => { this.EnableISEMode(); });
+        this.disableCommandRegistration = vscode.commands.registerCommand(
+            "PowerShell.DisableISEMode", () => { this.DisableISEMode(); });
+        this.toggleCommandRegistration = vscode.commands.registerCommand(
+            "PowerShell.ToggleISEMode", () => { this.ToggleISEMode(); });
     }
 
     public dispose() {
-        this.iseCommandRegistration.dispose();
-        this.defaultCommandRegistration.dispose();
+        this.enableCommandRegistration.dispose();
+        this.disableCommandRegistration.dispose();
+        this.toggleCommandRegistration.dispose();
     }
 
     private async EnableISEMode() {
+        this.iseToggled = true;
         for (const iseSetting of ISECompatibilityFeature.settings) {
             try {
                 await vscode.workspace.getConfiguration(iseSetting.path).update(iseSetting.name, iseSetting.value, true);
@@ -63,11 +74,20 @@ export class ISECompatibilityFeature implements vscode.Disposable {
     }
 
     private async DisableISEMode() {
+        this.iseToggled = false;
         for (const iseSetting of ISECompatibilityFeature.settings) {
             const currently = vscode.workspace.getConfiguration(iseSetting.path).get<string | boolean>(iseSetting.name);
             if (currently === iseSetting.value) {
                 await vscode.workspace.getConfiguration(iseSetting.path).update(iseSetting.name, undefined, true);
             }
+        }
+    }
+
+    private async ToggleISEMode() {
+        if (this.iseToggled) {
+            await this.DisableISEMode();
+        } else {
+            await this.EnableISEMode();
         }
     }
 }
