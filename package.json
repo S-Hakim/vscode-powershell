@@ -956,9 +956,9 @@
     
                 "media": {"markdown": "media/markdown/test.md"},
     
-                "description": "If you are familiar with Windows PowerShell ISE and would like to configure your settings to replicate the ISE Experience, choose ISE Mode.\n[Enable ISE Mode](command:PowerShell.EnableISEMode)\n[Disable ISE Mode](command:PowerShell.DisableISEMode)",
+                "description": "If you are familiar with Windows PowerShell ISE and would like to configure your settings to replicate the ISE Experience, choose ISE Mode.\n[Toggle ISE Mode](command:PowerShell.ToggleISEMode)",
     
-                "completionEvents": ["onCommand:PowerShell.EnableISEMode"] 
+                "completionEvents": ["onCommand:PowerShell.ToggleISEMode"] 
     
 
               },
