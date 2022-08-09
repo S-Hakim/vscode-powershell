@@ -44,7 +44,8 @@
     "onCommand:PowerShell.EnableISEMode",
     "onCommand:PowerShell.DisableISEMode",
     "onCommand:PowerShell.ToggleISEMode",
-    "onView:PowerShellCommands"
+    "onView:PowerShellCommands",
+    "onWalkthrough:sample"
   ],
   "dependencies": {
     "@vscode/extension-telemetry": "~0.6.2",
@@ -930,9 +931,8 @@
     
                 "media": {"markdown": "media/markdown/test.md"},
     
-                "description": "[Create](command:toSide:workbench.action.files.newUntitledFile?%7B%22languageId%22%3A%22powershell%22%7D) or [open](command:toSide:workbench.action.files.openFolder?%7B%22languageId%22%3A%22powershell%22%7D) a PowerShell file, make sure to save it as .ps1 \n[Create a File](command:toSide:workbench.action.files.newUntitledFile?%7B%22languageId%22%3A%22powershell%22%7D)\n**Tip**: Tip: Use keyboard shortcut **(Ctrl + N)** to open a new script file or **(Ctrl + O)** to open a file " ,
+                "description": "[Create](command:toSide:workbench.action.files.newUntitledFile?%7B%22languageId%22%3A%22powershell%22%7D) or [open](command:toSide:workbench.action.files.openFolder) a PowerShell file, make sure to save it as .ps1 \n[Create a File](command:toSide:workbench.action.files.newUntitledFile?%7B%22languageId%22%3A%22powershell%22%7D)\n**Tip**: Tip: Use keyboard shortcut **(Ctrl + N)** to open a new script file or **(Ctrl + O)** to open a file "
     
-                "completionEvents": ["onCommand:toSide:workbench.action.files.newUntitledFile?%7B%22languageId%22%3A%22powershell%22%7D"] 
               },
 
               {
